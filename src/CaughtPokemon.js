@@ -1,7 +1,36 @@
-import React from "react";
+import React, { useState } from "react";
 
-function CaughtPokemon(props) {
-  return <p>Caught 0 Pokemon on {props.date}</p>;
+function CaughtPokemon({ date }) {
+  const [caught, setCaught] = useState([]);
+
+  function catchPokemon() {
+    const ourPokemon = "Bulbasaur";
+    // const newArray = caught.concat(ourPokemon);
+
+    // const newArray = [...caught, ourPokemon];
+
+    // const newArray = [...caught]; // a copy
+    // newArray.push(ourPokemon);
+
+    const newArray = caught.slice();
+    newArray.push(ourPokemon);
+
+    setCaught(newArray);
+  }
+
+  return (
+    <div>
+      <p>
+        Caught {caught.length} Pokemon on {date}
+      </p>
+      <button onClick={catchPokemon}>Catch a pokemon</button>
+      <ul>
+        {caught.map((val, index) => {
+          return <li key={index}>{val}</li>;
+        })}
+      </ul>
+    </div>
+  );
 }
 
 export default CaughtPokemon;

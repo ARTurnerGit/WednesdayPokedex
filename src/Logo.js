@@ -10,6 +10,7 @@ function Logo(props) {
             "https://assets.pokemon.com/assets/cms2/img/pokedex/full/016.png"
           }
           alt={"a pokemon"}
+          onClick={props.handleClick}
         />
       </div>
     </header>
